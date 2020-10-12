@@ -20,21 +20,15 @@ public class MyHashSet
             root_ = null;
             length = 0;
         }
-        public int calculateLength()
+        public void calculateLength()
         {
-            length = 0;
-            if (root_ == null) return length;
-            else
-            {
-                length++;
-               Node current = root_;
-               while(current != null)
-               {
-                    length++;
-                    current = current.next_;
-               }
-            }
-            return length;
+            this.length = 0;
+            Node current = root__;
+			while(current != null)
+			{
+				length++;
+				current = current.next_;
+			}
         }
         public void Add(int key)
         {
@@ -98,7 +92,7 @@ public class MyHashSet
         {
             if (root_ == null) return false;
             Node current = root_;
-            if (current.val_ == key) return true;
+            
             while (current != null)
             {
                 if (current.val_ == key) return true;
