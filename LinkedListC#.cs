@@ -1,3 +1,5 @@
+//https://leetcode.com/problems/design-hashset/
+
 public class MyHashSet
 {
 	public class Node
