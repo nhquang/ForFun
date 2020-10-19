@@ -11,10 +11,9 @@
         bool oddExist = false;
         foreach(var item in chars){
             if(!oddExist && item.Value % 2 != 0){
-                if(item.Value == 1) length++;
-                else length += item.Value;
-                oddExist = true;
-            }
+                length += item.Value;
+				oddExist = true;;
+			}
             else length += item.Value % 2 == 0 ? item.Value : item.Value - 1;
         }
         return length;
