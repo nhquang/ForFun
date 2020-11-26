@@ -10,3 +10,18 @@
         }
         return max;
     }
+	
+	
+	//better solution O(n)
+	
+	public int MaxProfit(int[] prices) {
+        int max = 0, minprice = Int32.MaxValue;
+        for(int i = 0; i < prices.Length; i++){
+            if(minprice > prices[i]) minprice = prices[i];
+            else{
+                if((prices[i] - minprice) > max) max = prices[i] - minprice;
+            }
+        }
+        return max;
+        
+    }
