@@ -15,21 +15,15 @@ public class Solution {
         int sum = 0;
         for(int i = 0; i < s.Length - 1; i++){
             if(s[i] == 'I' && (s[i+1] == 'V' || s[i+1] == 'X')){
-                if(s[i+1] == 'V') sum += dict['V'];
-                else sum += dict['X'];
-                sum -= dict['I'];
+                sum += dict[s[i+1]] - dict['I'];
                 i++; 
             }
             else if (s[i] == 'X' && (s[i+1] == 'L' || s[i+1] == 'C')){
-                if(s[i+1] == 'L') sum += dict['L'];
-                else sum += dict['C'];
-                sum -= dict['X'];
+                sum += dict[s[i+1]] - dict['X'];
                 i++; 
             }
             else if (s[i] == 'C' && (s[i+1] == 'D' || s[i+1] == 'M')){
-                if(s[i+1] == 'D') sum += dict['D'];
-                else sum += dict['M'];
-                sum -= dict['C'];
+                sum += dict[s[i+1]] - dict['C'];
                 i++;
             }
             else
