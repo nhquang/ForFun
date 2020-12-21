@@ -10,19 +10,14 @@ public class Solution {
             if (dict.ContainsKey(deck[i])) dict[deck[i]]++;
             else dict.Add(deck[i], 1);
         }
-        int j = 1;
-        while (j < dict.ElementAt(0).Value)
-        {
-            bool skip = false;
-            j++;
-            while (dict.ElementAt(0).Value % j != 0) j++;
-            foreach (var item in dict)
-            {
-                if (item.Value < 2) return false;
-                else
-                    if (item.Value % j != 0) { skip = true; break; }
+        int temp = dict.ElementAt(0).Value;
+        for(int i = 2; i <= temp; i++){
+            int count = 0;
+            foreach(var item in dict){
+                if(item.Value < 2) return false;
+                else if(item.Value % i == 0) count++;
             }
-            if(!skip) return true;
+            if(count == dict.Count) return true;
         }
         return false;
     }
