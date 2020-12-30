@@ -2,7 +2,8 @@
 
 
 public class Solution {
-    public ListNode GetIntersectionNode(ListNode headA, ListNode headB) {
+    //brute force
+	public ListNode GetIntersectionNode(ListNode headA, ListNode headB) {
         var currA = headA;
         var currB = headB;
         while(currA != null){
@@ -12,6 +13,22 @@ public class Solution {
             }
             currA = currA.next;
             currB = headB;
+        }
+        return null;
+    }
+	
+	//O(m+n)
+	public ListNode GetIntersectionNode(ListNode headA, ListNode headB) {
+        var set = new HashSet<ListNode>();
+        ListNode curr = headA;
+        while(curr != null){
+            set.Add(curr);
+            curr = curr.next;
+        }
+        curr = headB;
+        while(curr != null){
+            if(set.Contains(curr)) return curr;
+            curr = curr.next;
         }
         return null;
     }
