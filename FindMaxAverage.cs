@@ -19,4 +19,20 @@ public class Solution {
         return max / k;
         
     }
+	
+	//O(n)
+	public double FindMaxAverage(int[] nums, int k) {
+        int temp = 0; double max = 0;
+        for(int i = 0; i < k; i++)
+            temp += nums[i];
+        max = temp;
+        int j = 0;
+        for(int i = k; i < nums.Length;i++){
+            temp = temp + nums[i] - nums[j];
+            max = Math.Max(max, temp);
+            j++;
+        }
+        return max / k;
+        
+    }
 }
