@@ -9,11 +9,7 @@ public class Solution {
         ListNode newHead = null;
         
         while(current != null){
-            if(current == head)
-                newHead = new ListNode(current.val, null);
-            else
-                newHead = new ListNode(current.val, newHead);
-			
+            newHead = new ListNode(current.val, newHead);
             current = current.next;
         }
         return newHead;
