@@ -3,13 +3,10 @@
 public class Solution {
     public bool ContainsPattern(int[] arr, int m, int k) {
         string a = String.Join("", arr);
-        string prev = "";
-        int count = 0;
         for (int i = 0; i + m <= arr.Length; i++)
         {
-            string temp = "";
-            prev = a.Substring(i, m);
-            count = 0;
+            string temp = "", prev = a.Substring(i, m);
+            int count = 0;
             for (int j = i; j + m <= arr.Length; j++)
             {
                 temp = a.Substring(j, m);
