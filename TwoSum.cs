@@ -1,21 +1,22 @@
-public static int[] TwoSum(int[] nums, int target)
-{
-    int baseNum = 0;
-    var rslt = new int[] { };
-    for (int i = 0; i < nums.Length; i++)
-    {
-        for (int j = i + 1; j < nums.Length; j++)
-        {
-            if (nums[baseNum] + nums[j] == target)
-            {
-                rslt = new int[2] { baseNum, j };
-                goto Done;
-            }
+
+public class Solution {
+    //O(n)
+	public int[] TwoSum(int[] nums, int target) {
+        var dict = new Dictionary<int,int>();
+        for(int i = 0; i < nums.Length; i++){
+            int temp = target - nums[i];
+            if(dict.ContainsKey(temp)) return new int[2]{dict[temp], i};
+            else dict.Add(nums[i],i);
         }
-        baseNum++;
+        return new int[2]{0,0};
     }
-    Done:
-    return rslt;        
-    
+	//O(n2)
+	public int[] TwoSum(int[] nums, int target)
+	{
+		for (int i = 0; i < nums.Length; i++)
+			for (int j = i + 1; j < nums.Length; j++)
+				if (nums[i] + nums[j] == target) return new int[2] { i, j };
+		return new int[2] { 0, 0 };
+	}
 }
 //https://leetcode.com/problems/two-sum/
