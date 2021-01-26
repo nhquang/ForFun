@@ -1,5 +1,5 @@
 //https://leetcode.com/problems/sort-array-by-parity-ii/
-
+//sliding window
 public class Solution {
     public int[] SortArrayByParityII(int[] A) {
         for(int i = 0; i < A.Length; i++){
@@ -23,5 +23,26 @@ public class Solution {
             }
         }
         return A;
+    }
+}
+// 2 Passes
+public class Solution {
+    public int[] SortArrayByParityII(int[] A) {
+        var ans = new int[A.Length];
+        int j = 0;
+        for(int i = 0; i < A.Length; i++){
+            if(A[i] % 2 == 0){
+                ans[j] = A[i];
+                j += 2;
+            }
+        }
+        j = 1;
+        for(int i = 0; i < A.Length; i++){
+            if(A[i] % 2 != 0){
+                ans[j] = A[i];
+                j += 2;
+            }
+        }
+        return ans;
     }
 }
