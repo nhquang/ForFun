@@ -16,7 +16,7 @@ public class Solution {
             }
             else break;
             if(temp != curr) break;
-            if(i == strs.Length - 1 && temp == curr){
+            if(i == strs.Length - 1){
                  rslt = curr;
                  i = -1; j++;
             }
