@@ -2,7 +2,7 @@
 
 
 
-// O(2n)
+// O(n)
 public class Solution {
     public  int FirstUniqChar(string s)
     {
