@@ -30,4 +30,12 @@ public class Solution {
         }
         return true;
     }
+	//O(n) where n is t.Length, )(1) space
+	public bool IsSubsequence(string s, string t) {
+        int sIdx = 0;
+        for(int tIdx = 0; tIdx < t.Length; tIdx++){
+            if(sIdx < s.Length && s[sIdx] == t[tIdx]) sIdx++;
+        }
+        return sIdx == s.Length;
+    }
 }
