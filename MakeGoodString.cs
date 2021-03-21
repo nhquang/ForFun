@@ -18,3 +18,19 @@
             }
             return rslt.ToString();
 		}
+		//Stack
+		public string MakeGood(string s) {
+        var stack = new Stack<char>();
+        for(int i = 0; i < s.Length; i++){
+            if(stack.Count > 0 && Math.Abs(stack.Peek() - s[i]) == 32) stack.Pop();
+            else stack.Push(s[i]);
+        }
+        var result = new char[stack.Count];
+        var j = 0;
+        while(stack.Count > 0){
+            result[j] = stack.Pop();
+            j++;
+        }
+        Array.Reverse(result);
+        return new string(result);
+    }
