@@ -17,3 +17,18 @@ public class Solution {
         return rs;
     }
 }
+//recursive
+public class Solution {
+    List<int> rs = new List<int>();
+    public IList<int> PreorderTraversal(TreeNode root) {
+        traverse(root);
+        return rs;
+    }
+    void traverse(TreeNode root){
+        if(root != null){
+            rs.Add(root.val);
+            traverse(root.left);
+            traverse(root.right);
+        }
+    }
+}
