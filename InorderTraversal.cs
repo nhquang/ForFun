@@ -15,3 +15,22 @@ public class Solution {
         }
     }
 }
+//Iterative inorder traversal using Stack
+public class Solution {
+    public IList<int> InorderTraversal(TreeNode root) {
+        var rs = new List<int>();
+        var stack = new Stack<TreeNode>();
+        var curr = root;
+        while(stack.Count != 0 || curr != null){
+            while(curr != null){
+                stack.Push(curr);
+                curr = curr.left;
+            }
+            var node = stack.Pop();
+            rs.Add(node.val);
+            curr = node.right;
+        }
+        return rs;
+    }
+    
+}
