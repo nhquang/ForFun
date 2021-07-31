@@ -1,4 +1,4 @@
-
+//https://leetcode.com/problems/sum-of-digits-of-string-after-convert/
 
 public class Solution {
     public int GetLucky(string s, int k) {
