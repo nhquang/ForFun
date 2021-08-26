@@ -19,7 +19,31 @@
 
         }*/
 		
-		public class Solution {
+	public class Solution {
+		//using SortedDictionary - TreeMap
+		public int[] TopKFrequent(int[] nums, int k) {
+			var dict = new Dictionary<int, int>();
+			foreach(var item in nums){
+				if(dict.ContainsKey(item)) dict[item]++;
+				else dict.Add(item, 1);
+			}
+			var sorted = new SortedDictionary<int, List<int>>();
+			foreach(var item in dict){
+				if(sorted.ContainsKey(item.Value)) sorted[item.Value].Add(item.Key);
+				else sorted.Add(item.Value, new List<int>(){item.Key});
+			}
+			var keys = sorted.Keys.ToArray();
+			var rs = new int[k];
+			int idx = 0;
+			for(int i = keys.Length - 1; i >= 0 && idx < k; i--){
+				for(int j = 0; j < sorted[keys[i]].Count && idx < k; j++)
+					rs[idx++] = sorted[keys[i]][j];
+			}
+			return rs;
+		}
+		
+		
+		
 		public int[] TopKFrequent(int[] nums, int k)
         {
             var pairs = new Dictionary<int, int>();
