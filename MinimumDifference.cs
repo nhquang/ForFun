@@ -9,10 +9,6 @@ public class Solution {
         for(int i = 0; i < nums.Length && temp < nums.Length; i++){
             rs = Math.Min(nums[temp++] - nums[i], rs);
         }
-        temp = nums.Length - k;
-        for(int i = nums.Length - 1; i >= 0 && temp >= 0; i--){
-            rs = Math.Min(nums[i] - nums[temp--], rs);
-        } 
         return rs;
     }
 }
